@@ -16,7 +16,7 @@ bash send.sh template.txt sample.csv
 
 Please write your template to `template.txt`, and replace the name with "${MACRO1}" and "${MACRO2}".
 
-Please write the name and phone number to `sample.csv`. Every line have three parameters: phonenumber MACRO1 MACRO2
+Please write the name and phone number to `sample.csv`. Every line have three parameters: PhoneNumber MACRO1 MACRO2
 
 Follow my sample.
 
