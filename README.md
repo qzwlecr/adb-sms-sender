@@ -6,7 +6,7 @@ ADB tools(Already connected to your phone with `adb connect`)
 
 bash environment
 
-Nexus 6P(Only tested on my phone, you may change the tap coordinate by yourself)
+Nexus 6P(Only tested on my phone, you must change the tap coordinate by yourself)
 
 ## Usage
 
@@ -14,9 +14,11 @@ Nexus 6P(Only tested on my phone, you may change the tap coordinate by yourself)
 bash send.sh template.txt sample.csv
 ```
 
-Please write your template to `template.txt`, and replace the name with "${NAME}".
+Please write your template to `template.txt`, and replace the name with "${MACRO1}" and "${MACRO2}".
 
-Please write the name and phone number to `sample.csv`. Follow my sample.
+Please write the name and phone number to `sample.csv`. Every line have three parameters: phonenumber MACRO1 MACRO2
+
+Follow my sample.
 
 ## Warning
 
