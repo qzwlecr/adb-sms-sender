@@ -34,6 +34,7 @@ then
 fi
 
 i=1
+len=0
 while read line <&3
 do
     IFS=","
@@ -49,17 +50,18 @@ do
     adb shell input keyevent 4 &>/dev/null
     rate=$((100*${i}/${lines}))
     bar=""
-    for((q=0;$q<=rate;q+=2))
+    for((q=0;$q<rate;q+=2))
     do
         bar=#$bar
     done
-    printf "Sending:[%-50s]%d%%" $bar $rate
-    if [[ $lines -eq $i ]]
-    then
-        printf " Send Message To %s %s %s\n" ${arr[0]} ${arr[1]} ${arr[2]}
-    else
-        printf " Send Message To %s %s %s\r\r" ${arr[0]} ${arr[1]} ${arr[2]}
-    fi
+    for ((q=0;$q<${len};q++))
+    do 
+        echo -ne "\b \b"
+    done
+    out=`printf "Sending:[%-50s]%d%% Send Message To %s %s %s" $bar $rate ${arr[0]} ${arr[1]} ${arr[2]}`
+    len=`wc -L <<< "${out}"`
+    echo -n $out
     let i+=1
 done
+echo ""
 echo "DONE!"
